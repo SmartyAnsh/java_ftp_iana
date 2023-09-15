@@ -6,9 +6,6 @@ import org.apache.commons.net.ftp.FTPReply;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class FtpClient {
 
@@ -41,7 +38,7 @@ public class FtpClient {
             if (files.length > 0) {
                 Arrays.sort(files, (i1, i2) -> i2.getTimestamp().compareTo(i1.getTimestamp()));
                 FTPFile latestFile = files[0];
-                System.out.println(String.format("Latest distribution [%s] on the [%s]", latestFile.getName(), latestFile.getTimestamp().getTime()));
+                System.out.printf("Latest distribution [%s] on the [%s]%n", latestFile.getName(), latestFile.getTimestamp().getTime());
             }
 
         } catch (Exception e) {
